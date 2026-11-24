@@ -893,6 +893,20 @@ async function finaleScreen() {
   ));
   await typeLines(msg, F.message, { instant: S.typed.finale, speed: 30 });
   S.typed.finale = true; save();
+  // Приглашение на ужин
+  if (F.dinner) {
+    const reply = el("ul", { class: "tx" });
+    const btn = el("button", { class: "btn block dinner-btn", type: "button", text: "🍽 " + F.dinner.button });
+    const box = el("div", { class: "dinner reveal" }, el("p", { class: "gate-text", text: F.dinner.question }), btn, reply);
+    msg.after(box);
+    const answer = async (instant) => {
+      btn.hidden = true;
+      if (!instant) sfx.unlock();
+      await typeLines(reply, [F.dinner.reply], { instant, speed: 28 });
+    };
+    if (S.dinner) answer(true);
+    btn.onclick = () => { S.dinner = Date.now(); save(); answer(false); };
+  }
 }
 
 // ================================================================ звёздное небо

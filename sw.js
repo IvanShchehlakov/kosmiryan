@@ -1,5 +1,5 @@
 // Service worker: офлайн-кэш. Версия и список файлов подставляются при сборке.
-const VERSION = "e747a3a519b5";
+const VERSION = "f1e9145c5088";
 const CACHE = "bd0712-" + VERSION;
 const ASSETS = ["./","./css/style.css","./data.json","./fonts/jbm-cyrillic-400.woff2","./fonts/jbm-cyrillic-700.woff2","./fonts/jbm-latin-400.woff2","./fonts/jbm-latin-700.woff2","./icon.svg","./index.html","./js/app.js","./js/cosmos.js","./js/fx.js","./js/normalize.js","./js/sky.js","./js/sky3d.js","./js/vendor/three.module.min.js","./manifest.webmanifest","./sky-catalog.json"];
 
