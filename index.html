@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#04060d">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>ЦУП · BD-0712</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/style.css?v=e747a3a519b5">
+</head>
+<body>
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <button id="sound" class="corner-btn" type="button" aria-pressed="false" title="Звук">
+    <span class="dot"></span><span class="lbl">ЗВУК: ВЫКЛ</span>
+  </button>
+
+  <main id="app" aria-live="polite">
+    <div class="boot">
+      <div class="boot-line">ИНИЦИАЛИЗАЦИЯ КАНАЛА СВЯЗИ<span class="blink">_</span></div>
+    </div>
+  </main>
+
+  <noscript><p class="noscript">Для связи с ЦУП нужен JavaScript.</p></noscript>
+
+  <!-- Нашивка миссии: шаблон. Имя и дополнения подставляются после входа. -->
+  <template id="patch-tpl">
+    <svg class="patch" viewBox="0 0 200 200" role="img" aria-label="Нашивка миссии BD-0712">
+      <defs>
+        <radialGradient id="pSpace" cx="50%" cy="35%" r="70%">
+          <stop offset="0" stop-color="#1a2a5c"/><stop offset=".6" stop-color="#0a1030"/><stop offset="1" stop-color="#04060d"/>
+        </radialGradient>
+        <linearGradient id="pPlanet" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#2ee6a6"/><stop offset="1" stop-color="#0a5c66"/>
+        </linearGradient>
+        <path id="pTop" d="M24 100 A76 76 0 0 1 176 100"/>
+        <path id="pBot" d="M18 100 A82 82 0 0 0 182 100"/>
+        <clipPath id="pClip"><circle cx="100" cy="100" r="62"/></clipPath>
+      </defs>
+      <circle cx="100" cy="100" r="97" fill="#070a16" stroke="#ffb020" stroke-width="3"/>
+      <circle cx="100" cy="100" r="90" fill="none" stroke="#ffb020" stroke-opacity=".35" stroke-width="1"/>
+      <text class="p-ring" font-size="13" letter-spacing="3"><textPath href="#pTop" startOffset="50%" text-anchor="middle">МИССИЯ BD-0712</textPath></text>
+      <text class="p-ring p-name" font-size="12" letter-spacing="3"><textPath href="#pBot" startOffset="50%" text-anchor="middle">· ЦУП ·</textPath></text>
+      <circle cx="100" cy="100" r="64" fill="url(#pSpace)" stroke="#39ff88" stroke-width="2"/>
+      <g clip-path="url(#pClip)">
+        <g fill="#fff">
+          <circle cx="70" cy="62" r="1.2"/><circle cx="128" cy="58" r="1"/><circle cx="142" cy="84" r="1.4"/>
+          <circle cx="58" cy="90" r=".9"/><circle cx="112" cy="46" r=".8"/><circle cx="86" cy="76" r=".7"/>
+          <circle cx="150" cy="108" r=".9"/><circle cx="52" cy="118" r="1"/>
+        </g>
+        <ellipse cx="100" cy="196" rx="96" ry="48" fill="url(#pPlanet)"/>
+        <ellipse cx="100" cy="196" rx="96" ry="48" fill="none" stroke="#9ff7d6" stroke-opacity=".5"/>
+        <ellipse cx="100" cy="104" rx="58" ry="20" fill="none" stroke="#ffb020" stroke-width="1.5" stroke-dasharray="3 4" transform="rotate(-18 100 104)"/>
+        <g transform="translate(142 72) rotate(40)">
+          <path d="M0 -14 Q6 -6 5 8 L-5 8 Q-6 -6 0 -14Z" fill="#e9edf2"/>
+          <circle cx="0" cy="-3" r="2.4" fill="#39ff88"/>
+          <path d="M-5 4 L-9 11 L-5 9Z M5 4 L9 11 L5 9Z" fill="#ff5a5a"/>
+          <path d="M-3 9 Q0 20 3 9Z" fill="#ffb020"/>
+        </g>
+        <text x="100" y="80" text-anchor="middle" class="p-date" font-size="20">07·12</text>
+        <g class="patch-addon"></g>
+      </g>
+      <circle cx="100" cy="100" r="64" fill="none" stroke="#39ff88" stroke-width="2"/>
+      <g fill="#ffb020"><path d="M100 4 l2 5 5 0 -4 3 2 5 -5 -3 -5 3 2 -5 -4 -3 5 0z"/></g>
+    </svg>
+  </template>
+
+  <script type="module" src="js/app.js?v=e747a3a519b5"></script>
+</body>
+</html>
